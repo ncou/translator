@@ -14,6 +14,9 @@ use Symfony\Component\Translation\Loader\LoaderInterface;
 use Symfony\Component\Translation\Dumper;
 use Symfony\Component\Translation\Loader;
 
+// TODO : ajouter un controle dans le nette/Schema pour vérifier que la locale a un format valide.
+//https://github.com/symfony/translation/blob/5.4/Translator.php#L458
+
 final class TranslatorConfig extends AbstractInjectableConfig
 {
     protected const CONFIG_SECTION_NAME = 'translator';
@@ -30,10 +33,10 @@ final class TranslatorConfig extends AbstractInjectableConfig
     protected function getConfigSchema(): Schema
     {
         return Expect::structure([
-            'locale' => Expect::string()->default(env('LOCALE', 'en')),
+            'locale' => Expect::string()->default(env('LOCALE', 'en')), //env('APP_DEFAULT_LOCALE', 'en_US'), // TODO : renommer en default_locale ???
             'fallback_locale' => Expect::string()->default(env('LOCALE', 'en')),
-            'directory'      => Expect::string()->default(directory('locale')),
-            'auto_register'   => Expect::boolean()->default(env('DEBUG', true)),
+            'directory'      => Expect::string()->default(directory('@locale')),
+            'auto_register'   => Expect::boolean()->default(env('DEBUG', true)),// TODO : attention je pense qu'on utilise un APP_DEBUG et pas DEBUG tout court.
             'loaders'        => Expect::array()->default([
                 'php'  => Loader\PhpFileLoader::class,
                 'po'   => Loader\PoFileLoader::class,
@@ -58,7 +61,7 @@ final class TranslatorConfig extends AbstractInjectableConfig
      */
     public function getDefaultDomain(): string
     {
-        return 'messages';
+        return 'messages'; // TODO : utiliser comme valeur 'default' comme c'est fait pour le domaine par défaut de cakephp ????
     }
 
     public function getDefaultLocale(): string
@@ -128,4 +131,17 @@ final class TranslatorConfig extends AbstractInjectableConfig
 
         return new $class();
     }
+
+    /**
+     * Asserts that the locale is valid, throws an Exception if not.
+     *
+     * @throws InvalidArgumentException If the locale contains invalid characters
+     */
+    /*
+    private function assertValidLocale(string $locale)
+    {
+        if (!preg_match('/^[a-z0-9@_\\.\\-]*$/i', $locale)) {
+            throw new InvalidArgumentException(sprintf('Invalid "%s" locale.', $locale));
+        }
+    }*/
 }

@@ -4,18 +4,18 @@ declare(strict_types=1);
 
 namespace Chiron\Translator\Catalogue;
 
-use Chiron\Boot\MemoryInterface;
+use Chiron\Core\Memory;
 use Chiron\Translator\Catalogue\CacheInterface;
 
 final class MemoryCache implements CacheInterface
 {
-    /** @var MemoryInterface */
+    /** @var Memory */
     private $memory;
 
     /**
-     * @param MemoryInterface $memory
+     * @param Memory $memory
      */
-    public function __construct(MemoryInterface $memory)
+    public function __construct(Memory $memory)
     {
         $this->memory = $memory;
     }
@@ -25,7 +25,7 @@ final class MemoryCache implements CacheInterface
      */
     public function setLocales(?array $locales): void
     {
-        $this->memory->saveData('i18n.locales', $locales);
+        $this->memory->write('i18n.locales', $locales);
     }
 
     /**
@@ -33,7 +33,8 @@ final class MemoryCache implements CacheInterface
      */
     public function getLocales(): ?array
     {
-        return $this->memory->loadData('i18n.locales') ?? null;
+        // TODO : il faudra vérifier si la section mémoire exist avant de la lire, sinon retourner null. Car on risque d'avoir le composant Memory qui throw une exception si la section n'est pas trouvée.
+        return $this->memory->read('i18n.locales') ?? null;
     }
 
     /**
@@ -41,7 +42,7 @@ final class MemoryCache implements CacheInterface
      */
     public function saveLocale(string $locale, ?array $data): void
     {
-        $this->memory->saveData("i18n.{$locale}", $data);
+        $this->memory->write("i18n.{$locale}", $data);
     }
 
     /**
@@ -49,6 +50,6 @@ final class MemoryCache implements CacheInterface
      */
     public function loadLocale(string $locale): ?array
     {
-        return $this->memory->loadData("i18n.{$locale}") ?? null;
+        return $this->memory->read("i18n.{$locale}") ?? null;
     }
 }

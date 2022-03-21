@@ -3,18 +3,11 @@
 use Symfony\Component\Translation\Dumper;
 use Symfony\Component\Translation\Loader;
 
-/*
-// TODO : initialiser le répertoire "locale"
-if (!$dirs->has('locale')) {
-            $dirs->set('locale', $dirs->get('app') . 'locale/');
-        }
-*/
-
 return [
-    'locale'         => env('LOCALE', 'en'),
+    'locale'         => env('LOCALE', 'en'), //env('APP_DEFAULT_LOCALE', 'en_US'), // TODO : renommer en default_locale ???
     'fallback_locale' => env('LOCALE', 'en'),
-    'directory'      => directory('locale'),
-    'auto_register'   => env('DEBUG', true),
+    'directory'      => directory('@locale'),
+    'auto_register'   => env('DEBUG', true), // TODO : attention je pense qu'on utilise un APP_DEBUG et pas DEBUG tout court.
     'loaders'        => [
         'php'  => Loader\PhpFileLoader::class,
         'po'   => Loader\PoFileLoader::class,

@@ -51,6 +51,14 @@
         },
         "ramsey/conventional-commits": {
             "configFile": "conventional-commits.json"
+        },
+        "chiron": {
+            "providers": [
+                "Chiron\\Translator\\Provider\\TranslatorServiceProvider"
+            ],
+            "bootloaders": [
+                "Chiron\\Translator\\Bootloader\\TranslatorDirectoryBootloader"
+            ]
         }
     },
     "scripts": {

@@ -7,7 +7,6 @@
 <p align="center">
     <a href="https://github.com/ncou/translator"><img src="https://img.shields.io/badge/source-chiron/translator-blue.svg?style=flat-square" alt="Source Code"></a>
     <a href="https://packagist.org/packages/chiron/translator"><img src="https://img.shields.io/packagist/v/chiron/translator.svg?style=flat-square&label=release" alt="Download Package"></a>
-    <a href="https://php.net"><img src="https://img.shields.io/packagist/php-v/chiron/translator.svg?style=flat-square&colorB=%238892BF" alt="PHP Programming Language"></a>
     <a href="https://github.com/ncou/translator/blob/master/LICENSE"><img src="https://img.shields.io/packagist/l/chiron/translator.svg?style=flat-square&colorB=darkcyan" alt="Read License"></a>
     <a href="https://github.com/ncou/translator/actions/workflows/build.yml"><img src="https://img.shields.io/github/workflow/status/ncou/translator/build/master?style=flat-square&logo=github" alt="Build Status"></a>
     <a href="https://app.codecov.io/gh/ncou/translator"><img src="https://img.shields.io/codecov/c/gh/ncou/translator?label=codecov&logo=codecov&style=flat-square" alt="Codecov Code Coverage"></a>
@@ -16,7 +15,7 @@
 
 ## Requirements
 
-- PHP 8.0 or higher.
+- PHP 8.0 or 8.1
 
 ## Installation
 
