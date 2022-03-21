@@ -1,33 +1,46 @@
 {
     "name": "chiron/translator",
-    "type": "library",
     "description": "Translator, Static Analysis and Auto-Indexation",
     "license": "MIT",
+    "type": "library",
     "homepage": "https://spiral.dev",
     "support": {
         "issues": "https://github.com/spiral/framework/issues",
         "source": "https://github.com/spiral/translator"
     },
     "require": {
-        "php": "^8.0|^8.1",
+        "php": "^8.0 || ^8.1",
         "chiron/core": "^1.0",
-        "symfony/translation": "^5.1|^6.0"
+        "symfony/translation": "^5.1 || ^6.0"
     },
     "require-dev": {
         "chiron/devtools": "^1.0"
     },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
     "autoload": {
-        "files": [
-            "src/helpers.php"
-        ],
         "psr-4": {
             "Chiron\\Translator\\": "src"
-        }
+        },
+        "files": [
+            "src/helpers.php"
+        ]
     },
     "autoload-dev": {
         "psr-4": {
             "Chiron\\Tests\\Translator\\": "tests"
         }
+    },
+    "config": {
+        "allow-plugins": {
+            "composer/package-versions-deprecated": true,
+            "phpstan/extension-installer": true,
+            "ergebnis/composer-normalize": true,
+            "dealerdirect/phpcodesniffer-composer-installer": true,
+            "captainhook/plugin-composer": true,
+            "chiron/devtools": true
+        },
+        "sort-packages": true
     },
     "extra": {
         "captainhook": {
@@ -42,18 +55,5 @@
     },
     "scripts": {
         "phpunit": "devtools dev:test:unit -- --colors=always --testdox --verbose"
-    },
-    "config": {
-        "sort-packages": true,
-        "allow-plugins": {
-            "composer/package-versions-deprecated": true,
-            "phpstan/extension-installer": true,
-            "ergebnis/composer-normalize": true,
-            "dealerdirect/phpcodesniffer-composer-installer": true,
-            "captainhook/plugin-composer": true,
-            "chiron/devtools": true
-        }
-    },
-    "minimum-stability": "dev",
-    "prefer-stable": true
+    }
 }
