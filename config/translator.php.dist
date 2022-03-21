@@ -1,0 +1,34 @@
+<?php
+
+use Symfony\Component\Translation\Dumper;
+use Symfony\Component\Translation\Loader;
+
+/*
+// TODO : initialiser le répertoire "locale"
+if (!$dirs->has('locale')) {
+            $dirs->set('locale', $dirs->get('app') . 'locale/');
+        }
+*/
+
+return [
+    'locale'         => env('LOCALE', 'en'),
+    'fallback_locale' => env('LOCALE', 'en'),
+    'directory'      => directory('locale'),
+    'auto_register'   => env('DEBUG', true),
+    'loaders'        => [
+        'php'  => Loader\PhpFileLoader::class,
+        'po'   => Loader\PoFileLoader::class,
+        'csv'  => Loader\CsvFileLoader::class,
+        'json' => Loader\JsonFileLoader::class,
+    ],
+    'dumpers'        => [
+        'php'  => Dumper\PhpFileDumper::class,
+        'po'   => Dumper\PoFileDumper::class,
+        'csv'  => Dumper\CsvFileDumper::class,
+        'json' => Dumper\JsonFileDumper::class,
+    ],
+    'domains'        => [
+        // by default we can store all messages in one domain
+        'messages' => ['*'],
+    ],
+];

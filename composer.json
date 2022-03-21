@@ -1,0 +1,45 @@
+{
+    "name": "chiron/translator",
+    "type": "library",
+    "description": "Translator, Static Analysis and Auto-Indexation",
+    "license": "MIT",
+    "homepage": "https://spiral.dev",
+    "support": {
+        "issues": "https://github.com/spiral/framework/issues",
+        "source": "https://github.com/spiral/translator"
+    },
+    "require": {
+        "php": "^8.0|^8.1",
+        "chiron/core": "^1.0",
+        "symfony/translation": "^5.1|^6.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^8.5|^9.5",
+        "mockery/mockery": "^1.3"
+    },
+    "autoload": {
+        "files": [
+            "src/helpers.php"
+        ],
+        "psr-4": {
+            "Chiron\\Translator\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Chiron\\Tests\\Translator\\": "tests"
+        }
+    },
+    "scripts": {
+        "phpunit": "phpunit --colors=always",
+        "test-coverage": "phpunit --coverage-clover clover.xml",
+        "phpstan": "phpstan analyse --ansi",
+        "check-style": "phpcs src tests",
+        "fix-style": "phpcbf src tests"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
