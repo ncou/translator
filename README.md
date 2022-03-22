@@ -73,5 +73,5 @@ composer fix-style
 
 ## License
 
-The Chiron Injector is free software. It is released under the terms of the MIT License.
+This package is free software. It is released under the terms of the MIT License.
 Please see [`LICENSE`](./LICENSE.md) for more information.
