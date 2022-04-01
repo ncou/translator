@@ -16,6 +16,7 @@ use Symfony\Component\Translation\Loader;
 
 // TODO : ajouter un controle dans le nette/Schema pour vérifier que la locale a un format valide.
 //https://github.com/symfony/translation/blob/5.4/Translator.php#L458
+//https://github.com/yiisoft/i18n/blob/da24cbf1faf12c3bee6f09eb6c533d854724cb74/src/Locale.php#L483
 
 final class TranslatorConfig extends AbstractInjectableConfig
 {

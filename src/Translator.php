@@ -87,9 +87,10 @@ final class Translator implements TranslatorInterface, SingletonInterface
      *
      * @throws LocaleException
      */
+    // TODO : renommer al méthode en translation() ??? attention ca va casser la compatibilité avec l'interface de Symfony
     public function trans(string $id, array $parameters = [], $domain = null, $locale = null): string
     {
-        $domain = $domain ?? $this->config->getDefaultDomain();
+        $domain = $domain ?? $this->config->getDefaultDomain(); // TODO : garder le domaine par défaut ('messages') dans la classe Config ? ou alors le mettre en dur dans cette classe avec par exemple une constante privée pour définir cette valeur ???
         $locale = $locale ?? $this->locale;
 
         $message = $this->get($locale, $domain, $id);
@@ -113,7 +114,7 @@ final class Translator implements TranslatorInterface, SingletonInterface
         $domain = null,
         $locale = null
     ) {
-        $domain = $domain ?? $this->config->getDefaultDomain();
+        $domain = $domain ?? $this->config->getDefaultDomain(); // TODO : garder le domaine par défaut ('messages') dans la classe Config ? ou alors le mettre en dur dans cette classe avec par exemple une constante privée pour définir cette valeur ???
         $locale = $locale ?? $this->locale;
 
         try {
