@@ -31,4 +31,14 @@ interface TranslatorInterface extends \Symfony\Contracts\Translation\TranslatorI
      * Get associated catalogue manager.
      */
     public function getCatalogueManager(): CatalogueManagerInterface;
+
+    public function setLocale(string $locale): void;
+
+    public function transChoice(
+        $id,
+        $number,
+        array $parameters = [],
+        $domain = null,
+        $locale = null
+    );
 }

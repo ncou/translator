@@ -10,6 +10,10 @@ use Chiron\Translator\Exception\LocaleException;
 use Chiron\Translator\Exception\PluralizationException;
 use Symfony\Component\Translation\IdentityTranslator;
 
+//https://github.com/cakephp/cakephp/blob/856741f34393bef25284b86da703e840071c4341/src/I18n/Translator.php
+
+// TODO : il faudrait pas ajouter dans le conposer rubrique require un "intl: *" ??? https://github.com/cakephp/cakephp/blob/856741f34393bef25284b86da703e840071c4341/src/I18n/composer.json#L32
+
 /**
  * Implementation of Symfony\TranslatorInterface with memory caching, automatic message
  * registration and bundle/domain grouping.

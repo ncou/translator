@@ -9,16 +9,18 @@ use Chiron\Translator\Exception\LocaleException;
 /**
  * Manages list of locales and associated catalogues.
  */
+// TODO : déplacer cette classe dans le répertoire Catalogue ????
 interface CatalogueManagerInterface
 {
     /**
      * Get list of all existed locales.
+     *
+     * @return string[]
      */
     public function getLocales(): array;
 
     /**
      * Load catalogue.
-     *
      *
      * @throws LocaleException
      */
@@ -36,7 +38,6 @@ interface CatalogueManagerInterface
 
     /**
      * Get catalogue associated with the locale.
-     *
      *
      * @throws LocaleException
      */
